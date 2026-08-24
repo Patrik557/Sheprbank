@@ -93,6 +93,16 @@
             position: relative;
             overflow: hidden;
         }
+
+        @media (max-width: 767px) {
+            body {
+                background-attachment: scroll;
+            }
+            .offset-grid > :nth-child(2n),
+            .offset-grid > :nth-child(3n) {
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body class="text-gray-900">
@@ -101,8 +111,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center -space-x-1">
-                    <img src="logo-Photoroom.png" alt="KALMACH Logo" class="h-12 w-12 object-contain">
-                    <span class="text-xl font-bold text-gradient-gray">ALMACH</span>
+                    <img src="logo-Photoroom.png" alt="KALMACH Logo" class="h-10 w-10 sm:h-12 sm:w-12 object-contain">
+                    <span class="text-lg sm:text-xl font-bold text-gradient-gray">ALMACH</span>
                 </div>
                 <nav class="hidden md:flex space-x-8">
                     <a href="#proc" class="hover:text-blue-400 transition">Proč my</a>
@@ -111,21 +121,33 @@
                     <a href="fotky-montaze.html" class="hover:text-blue-400 transition">Fotky montáže</a>
                     <a href="#formular" class="hover:text-blue-400 transition">Kontakt</a>
                 </nav>
+                <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 shrink-0" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                    <span class="block w-6 h-0.5 bg-white mb-1.5"></span>
+                    <span class="block w-6 h-0.5 bg-white"></span>
+                </button>
             </div>
+            <nav id="mobile-menu" class="md:hidden hidden flex-col space-y-1 pb-4">
+                <a href="#proc" class="block py-2 hover:text-blue-400 transition">Proč my</a>
+                <a href="#vyziti" class="block py-2 hover:text-blue-400 transition">Informace</a>
+                <a href="#galerie" class="block py-2 hover:text-blue-400 transition">Realizace</a>
+                <a href="fotky-montaze.html" class="block py-2 hover:text-blue-400 transition">Fotky montáže</a>
+                <a href="#formular" class="block py-2 hover:text-blue-400 transition">Kontakt</a>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="container-bg relative h-screen flex items-center justify-start">
         <div class="hero-gradient absolute inset-0"></div>
-        <div class="relative z-10 text-left text-white max-w-2xl mx-auto px-4 ml-12">
-            <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight text-white">
+        <div class="relative z-10 text-left text-white max-w-2xl mx-auto px-4 sm:px-6 ml-0 sm:ml-6 md:ml-12">
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 leading-tight text-white">
                 Kontejnery
             </h1>
-            <p class="text-3xl text-blue-200 mb-8 font-light">
+            <p class="text-2xl sm:text-3xl text-blue-200 mb-8 font-light">
                 Za 2 dny
             </p>
-            <p class="text-lg text-gray-100 mb-12 max-w-xl">
+            <p class="text-base sm:text-lg text-gray-100 mb-12 max-w-xl">
                 Mobilní ocelové kontejnery. Bez stavebního povolení, bez starostí.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
@@ -139,9 +161,9 @@
     <!-- Why Us Section -->
     <section id="proc" class="py-20 section-accent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-left mb-16 ml-8">
-                <h2 class="text-6xl font-bold text-white mb-4">Proč<br><span class="text-gradient-gray">KALMACH</span>?</h2>
-                <p class="text-xl text-gray-200">Čtyři výhody, které vás přesvědčí</p>
+            <div class="text-left mb-16 ml-0 sm:ml-4 md:ml-8">
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Proč<br><span class="text-gradient-gray">KALMACH</span>?</h2>
+                <p class="text-lg sm:text-xl text-gray-200">Čtyři výhody, které vás přesvědčí</p>
             </div>
             
             <div class="offset-grid">
@@ -179,14 +201,27 @@
     <!-- Usage Section -->
     <section id="vyziti" class="py-20 section-accent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-left mb-16 ml-8">
-                <h2 class="text-6xl font-bold text-white mb-4">Informace</h2>
+            <div class="text-left mb-16 ml-0 sm:ml-4 md:ml-8">
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Informace</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-stretch mb-12">
+                <div>
+                    <img src="nč1.jpg" alt="Nákres kontejneru" class="w-full h-auto rounded-lg">
+                </div>
+                <div class="flex flex-col justify-between h-full">
+                    <div>
+                        <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-gray mb-4">Nákres kontejneru</h3>
+                        <p class="text-gray-200 text-sm">Jedná se pouze o orientační nákres kontejneru.</p>
+                    </div>
+                    <img src="nč2.jpg" alt="Nákres kontejneru 2" class="w-2/3 mx-auto h-auto rounded-lg mt-6">
+                </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Info 1 - Price -->
                 <div class="card-shadow bg-white/5 backdrop-blur-sm overflow-hidden rounded-lg border border-white/10 p-6 hover-lift">
-                    <h3 class="text-4xl font-bold text-gradient-gray mb-3">77 000,-</h3>
+                    <h3 class="text-4xl font-bold text-gradient-gray mb-3">79 000,-</h3>
                     <p class="text-gray-200">bez DPH</p>
                 </div>
 
@@ -239,6 +274,18 @@
                     <h3 class="text-2xl font-bold text-white mb-4">Poznámka</h3>
                     <p class="text-gray-200 text-sm">Ceny jsou uvedeny bez DPH. Kontaktujte nás pro více informací nebo individuální nabídku.</p>
                 </div>
+
+                <!-- Info 7 - Custom window/door placement -->
+                <div class="card-shadow bg-white/5 backdrop-blur-sm overflow-hidden rounded-lg border border-white/10 p-6 hover-lift">
+                    <h3 class="text-2xl font-bold text-white mb-4">Umístění oken a dveří</h3>
+                    <p class="text-gray-200 text-sm">Umístění oken a dveří si můžete navrhnout sami podle vašich představ a potřeb.</p>
+                </div>
+
+                <!-- Info 8 - Combining containers -->
+                <div class="card-shadow bg-white/5 backdrop-blur-sm overflow-hidden rounded-lg border border-white/10 p-6 hover-lift">
+                    <h3 class="text-2xl font-bold text-white mb-4">Spojení kontejnerů</h3>
+                    <p class="text-gray-200 text-sm">Je možné dát vedle sebe dva až tři kontejnery, které budou spojeny do jednoho většího celku.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -246,9 +293,9 @@
     <!-- Gallery Section -->
     <section id="galerie" class="py-20 section-accent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-left mb-16 ml-8">
-                <h2 class="text-6xl font-bold text-white mb-4">Naše<br><span class="text-gradient-gray">realizace</span></h2>
-                <p class="text-xl text-gray-200">Projekty za námi</p>
+            <div class="text-left mb-16 ml-0 sm:ml-4 md:ml-8">
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Naše<br><span class="text-gradient-gray">realizace</span></h2>
+                <p class="text-lg sm:text-xl text-gray-200">Projekty za námi</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max">
@@ -274,22 +321,22 @@
     <section id="formular" class="py-20 section-accent">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-left mb-12">
-                <h2 class="text-6xl font-bold text-white mb-4">Kontaktujte <span class="text-gradient-gray">nás</span></h2>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Kontaktujte <span class="text-gradient-gray">nás</span></h2>
             </div>
 
             <div class="card-shadow bg-white rounded-lg overflow-hidden">
                 <table class="w-full">
                     <tbody>
                         <tr class="border-b border-gray-200">
-                            <td class="px-8 py-6 font-bold text-gray-700 text-lg">📞 Telefon</td>
-                            <td class="px-8 py-6 text-right">
-                                <a href="tel:+420775094244" class="text-blue-600 hover:text-blue-700 font-bold text-lg transition">775 094 244</a>
+                            <td class="px-4 sm:px-8 py-4 sm:py-6 font-bold text-gray-700 text-base sm:text-lg">📞 Telefon</td>
+                            <td class="px-4 sm:px-8 py-4 sm:py-6 text-right">
+                                <a href="tel:+420775094244" class="text-blue-600 hover:text-blue-700 font-bold text-base sm:text-lg transition break-words">775 094 244</a>
                             </td>
                         </tr>
                         <tr>
-                            <td class="px-8 py-6 font-bold text-gray-700 text-lg">📧 Email</td>
-                            <td class="px-8 py-6 text-right">
-                                <a href="mailto:beztmy@gmail.com" class="text-blue-600 hover:text-blue-700 font-bold text-lg transition">beztmy@gmail.com</a>
+                            <td class="px-4 sm:px-8 py-4 sm:py-6 font-bold text-gray-700 text-base sm:text-lg">📧 Email</td>
+                            <td class="px-4 sm:px-8 py-4 sm:py-6 text-right">
+                                <a href="mailto:beztmy@gmail.com" class="text-blue-600 hover:text-blue-700 font-bold text-base sm:text-lg transition break-words">beztmy@gmail.com</a>
                             </td>
                         </tr>
                     </tbody>
@@ -345,6 +392,25 @@
                 }
             });
         });
+
+        // Mobilní menu (hamburger)
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
     </script>
 </body>
 </html>
